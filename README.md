@@ -7,5 +7,5 @@ Place Impactor Folder on the Desktop and place the Loader.exe in the Impactor Fo
 For Example
 
 [section]
-username=user@gmail.com
+username=user@domain.com
 password=password
