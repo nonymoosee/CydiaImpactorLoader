@@ -5,17 +5,42 @@
 
 $username = IniRead(@ScriptDir & '\settingsforloader.ini', 'section', 'username', "NotFound")
 $password = IniRead(@ScriptDir & '\settingsforloader.ini', 'section', 'password', "NotFound")
-Global $draggedfile, $locationcheck, $impactorfolder=@DesktopDir & "\Impactor\", $impactorlocation=@DesktopDir &"\Impactor\Impactor.exe"
+Global $draggedfile, $locationcheck, $impactorfolder=@DesktopDir & "\Impactor\", $revoke=0,  $impactorlocation=@DesktopDir &"\Impactor\Impactor.exe"
+
 If $CmdLine[0] = 0 Then
-	MsgBox(0, "ERROR", "DRAG AND DROP THE IPA FILE YOU WANT TO INSTALL ON ME!")
-	Break
+	$revoke=MsgBox(4, "Revoke Certificate?", "You did not drag an IPA file onto loader.exe, do you want to revoke certificates instead? Yes to Revoke, No to close")
+	If $revoke=6 Then
+		ShellExecute(@DesktopDir &"\Impactor\Impactor.exe")
+		WinWait("Cydia Impactor")
+		WinActivate("Cydia Impactor")
+		Sleep(400)
+		Send("{ALTDOWN}")
+		Send("X")
+		Sleep(400)
+		Send("R")
+		Send("{ALTUP}")
+		WinWait("Apple")
+		WinActivate("Apple")
+		Sleep(400)
+		Send($username, 1)
+		Sleep(400)
+		Send("{ENTER}")
+		WinWait("Apple ID Password")
+		WinActivate("Apple ID Password")
+		Sleep(400)
+		Send($password, 1)
+		Sleep(400)
+		Send("{ENTER}")
+	EndIf
+
+	Exit
 EndIf
 
 If $CmdLine[0] <> 0 Then $draggedfile=$CmdLine[1]
 $locationcheck = FileExists($impactorlocation)
 If $locationcheck=0 Then
         MsgBox(0, "", "The file doesn't exist." & @CRLF & "FileExist returned: " & $locationcheck)
-		Break
+		Exit
 EndIf
 
 ShellExecute(@DesktopDir &"\Impactor\Impactor.exe")
@@ -30,14 +55,20 @@ Sleep(100)
 Send("{ALTUP}")
 Send($draggedfile, 1)
 Send("{ALTDOWN}")
+Sleep(100)
 Send("O")
+Sleep(100)
 Send("{ALTUP}")
 Sleep("100")
 WinWait("Apple")
 WinActivate("Apple")
+Sleep(200)
 Send($username, 1)
+Sleep(200)
 Send("{ENTER}")
 WinWait("Apple ID Password")
 WinActivate("Apple ID Password")
+Sleep(200)
 Send($password, 1)
+Sleep(200)
 Send("{ENTER}")
