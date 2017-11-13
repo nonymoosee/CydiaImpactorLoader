@@ -1,4 +1,4 @@
-# CydiaImpactorLoader
+CydiaImpactorLoader
 
 Hey guys because I sign my own software using Cydia Impactor and having to retype your login over and over every week is annoying, I made this software for everyone (mostly myself) to use. I created a program to autofill everything for you when using cydia impactor, it's programmed in an automation language called autoit and the source code is available on github.
 To Run:
@@ -9,6 +9,8 @@ To Run:
 5) Drag the whatever .ipa file you want to install onto 'loader.exe', not impactor.exe.
 6) Watch the magic, hopefully. :)
 7) If you want to revoke your certificates, just run the program without dragging an IPA onto it.
-Also sidenotes :
+
+Cydia Impactor Sidenotes unrelated to my program:
 1) Make sure impactor is updated because popups from Impactor will break will break the program
-2) For cydia impactor to work you need iTunes installed on your computer
+2) For cydia impactor to work you need iTunes installed on your computer and your itunes account needs to have 2FA turned off.
+Edited for cleanup
