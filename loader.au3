@@ -5,15 +5,15 @@
 
 $username = IniRead(@ScriptDir & '\settingsforloader.ini', 'section', 'username', "NotFound")
 $password = IniRead(@ScriptDir & '\settingsforloader.ini', 'section', 'password', "NotFound")
-Global $draggedfile, $locationcheck, $impactorfolder=@DesktopDir & "\Impactor\", $revoke=0,  $impactorlocation=@DesktopDir &"\Impactor\Impactor.exe"
+Global $draggedfile, $locationcheck, $impactorfolder=@ScriptDir & "\Impactor\", $revoke=0,  $impactorlocation=@ScriptDir &"\Impactor.exe"
 
 If $CmdLine[0] = 0 Then
 	$revoke=MsgBox(4, "Revoke Certificate?", "You did not drag an IPA file onto loader.exe, do you want to revoke certificates instead? Yes to Revoke, No to close")
 	If $revoke=6 Then
-		ShellExecute(@DesktopDir &"\Impactor\Impactor.exe")
+		ShellExecute(@ScriptDir &"\Impactor.exe")
 		WinWait("Cydia Impactor")
 		WinActivate("Cydia Impactor")
-		Sleep(400)
+		Sleep(800)
 		Send("{ALTDOWN}")
 		Send("X")
 		Sleep(400)
@@ -43,13 +43,13 @@ If $locationcheck=0 Then
 		Exit
 EndIf
 
-ShellExecute(@DesktopDir &"\Impactor\Impactor.exe")
+ShellExecute(@ScriptDir &"\Impactor.exe")
 WinWait("Cydia Impactor")
 WinActivate("Cydia Impactor")
-Sleep(100)
+Sleep(800)
 Send("{ALTDOWN}")
 Send("DI")
-Sleep(1000)
+Sleep(500)
 Send("N")
 Sleep(100)
 Send("{ALTUP}")
@@ -62,13 +62,14 @@ Send("{ALTUP}")
 Sleep("100")
 WinWait("Apple")
 WinActivate("Apple")
-Sleep(200)
+Sleep(250)
 Send($username, 1)
-Sleep(200)
+Sleep(250)
 Send("{ENTER}")
 WinWait("Apple ID Password")
 WinActivate("Apple ID Password")
-Sleep(200)
+Sleep(250)
 Send($password, 1)
-Sleep(200)
+Sleep(250)
 Send("{ENTER}")
+Exit
