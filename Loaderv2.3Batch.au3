@@ -15,7 +15,6 @@
 
 
 Global $sSalt = @ComputerName & @DocumentsCommonDir
-Global $FileList = _FileListToArray(@ScriptDir, '*.ipa', 1)
 
 $username = IniRead(@ScriptDir & "\settings.txt", "username", "01", "NotFound")
 $password = IniRead(@ScriptDir & "\settings.txt", "userpass", "01", "NotFound")
@@ -69,7 +68,7 @@ EndIf
 $ImpactorLoader = GUICreate("CydiaLoader", 827, 481, -1, -1)
 $Label1 = GUICtrlCreateLabel("IPA FILES IN CURRENT FOLDER AVAILABLE FOR INSTALLATION: ", 368, 8, 340, 17)
 
-Global $FileList = _FileListToArray(@ScriptDir, '*.ipa', 1)
+Global $FileList = _FileListToArray(@ScriptDir& "\IPA Files\", '*.ipa', 1)
 
 $hListBox = _GUICtrlListBox_Create($ImpactorLoader, "", 357, 70, 450, 400, $LBS_EXTENDEDSEL)
 $UPass = GUICtrlCreateButton("Type Username/Password (will wait for username window)", 16, 10, 289, 49)
