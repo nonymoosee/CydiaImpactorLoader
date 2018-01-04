@@ -72,13 +72,9 @@ $Label1 = GUICtrlCreateLabel("IPA FILES IN CURRENT FOLDER AVAILABLE FOR INSTALLA
 Global $FileList = _FileListToArray(@ScriptDir, '*.ipa', 1)
 
 $hListBox = _GUICtrlListBox_Create($ImpactorLoader, "", 357, 70, 450, 400, $LBS_EXTENDEDSEL)
-;~ $hButton_Select = GUICtrlCreateButton("Select", 357, 70, 360, 75)
-;~ $hButton_Clear  = GUICtrlCreateButton("Clear", 190, 210, 80, 30)
-$hButton_Select = GUICtrlCreateButton("Select", 13, 6, 152, 19)
-$hButton_Clear = GUICtrlCreateButton("Clear", 174, 2, 128, 22)
-$UPass = GUICtrlCreateButton("Type Username/Password (will wait for username window)", 16, 35, 289, 49)
+$UPass = GUICtrlCreateButton("Type Username/Password (will wait for username window)", 16, 10, 289, 49)
 $RevokeCerts = GUICtrlCreateButton("Launch Cydia Impactor and Revoke My Certificates", 16, 88, 289, 57)
-$LaunchAndInstallTheChosenIPA = GUICtrlCreateButton("Launch Cydia Impactor And Install the Chosen IPA for me", 16, 384, 289, 57)
+$LaunchAndInstallTheChosenIPA = GUICtrlCreateButton("Launch Cydia Impactor And Install the Chosen IPA(s) for me", 16, 384, 289, 57)
 $LaunchImp = GUICtrlCreateButton("Start Cydia Impactor For Me", 16, 288, 289, 57)
 $Close = GUICtrlCreateButton("Close", 16, 184, 289, 57)
 
@@ -88,24 +84,9 @@ _Update_ListBox()
 
 While 1
 
-	; Poll the GUI
 	Switch GUIGetMsg()
-		; Exit
 		Case $GUI_EVENT_CLOSE
 			Exit
-			; Select button pressed
-;~         Case $hButton_Select
-;~             $aSelected = _GUICtrlListBox_GetSelItems($hListBox)
-			; Write selected items to console
-;~             For $i = 1 To $aSelected[0]
-;~                 ConsoleWrite("Item " & $aSelected[$i] & " selected" & @CRLF)
-
-			; Clear button pressed
-		Case $hButton_Clear
-			; Clear the items to remove selection status
-			_GUICtrlListBox_ResetContent($hListBox)
-			; Reload ListBox
-			_Update_ListBox()
 
 		Case $Close
 			Exit
