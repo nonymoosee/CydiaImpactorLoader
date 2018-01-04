@@ -104,8 +104,9 @@ While 1
 				ConsoleWrite("Item " & $aSelected[$i] & " selected" & @CRLF)
 				LoadIPA($FileList[$i])
 				Finishedyet()
+				Sleep(10000)
 			Next
-			MsgBox(0, 0, "Success!")
+			MsgBox(0, "Batch loading complete", "Success!")
 			Exit
 
 		Case $LaunchImp
@@ -145,7 +146,7 @@ Func LoadIPA($Selectedwhat)
 	Sleep(800)
 	WinMenuSelectItem("Cydia Impactor", "", "&Device", "&Install Package...")
 	Sleep(200)
-	ControlSetText("Select package.", "", "Edit1", $Selectedwhat)
+	ControlSetText("Select package.", "", "Edit1", @ScriptDir &"\"& $Selectedwhat)
 	Sleep(200)
 	ControlClick("Select package.", "", "Button1", "primary", 1)
 	Sleep(100)
@@ -186,7 +187,6 @@ Func Finishedyet()
 	Do
 		Sleep(2000)
 		$finished = ControlGetText("Cydia Impactor", "", "Static1")
-;~ 		MsgBox(0, 0, $finished)
 	Until $finished = "Complete"
 
 EndFunc   ;==>Finishedyet
