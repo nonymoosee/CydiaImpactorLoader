@@ -100,7 +100,6 @@ While 1
 		Case $LaunchAndInstallTheChosenIPA
 
 			$aSelected = _GUICtrlListBox_GetSelItems($hListBox)
-			_ArrayDisplay($aSelected)
 			For $i = 1 To $aSelected[0]
 				ConsoleWrite("Item " & $aSelected[$i] & " selected" & @CRLF)
 				LoadIPA($FileList[$i])
