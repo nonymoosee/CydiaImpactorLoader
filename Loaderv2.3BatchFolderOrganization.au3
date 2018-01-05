@@ -15,7 +15,6 @@
 
 
 Global $sSalt = @ComputerName & @DocumentsCommonDir
-Global $FileList = _FileListToArray(@ScriptDir, '*.ipa', 1)
 
 $username = IniRead(@ScriptDir & "\settings.txt", "username", "01", "NotFound")
 $password = IniRead(@ScriptDir & "\settings.txt", "userpass", "01", "NotFound")
@@ -146,7 +145,7 @@ Func LoadIPA($Selectedwhat)
 	Sleep(800)
 	WinMenuSelectItem("Cydia Impactor", "", "&Device", "&Install Package...")
 	Sleep(200)
-	ControlSetText("Select package.", "", "Edit1", @ScriptDir &"\IPA Folder\"& $Selectedwhat)
+	ControlSetText("Select package.", "", "Edit1", @ScriptDir &"\IPA Files\"& $Selectedwhat)
 	Sleep(200)
 	ControlClick("Select package.", "", "Button1", "primary", 1)
 	Sleep(100)
