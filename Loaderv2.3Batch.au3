@@ -68,7 +68,17 @@ EndIf
 $ImpactorLoader = GUICreate("CydiaLoader", 827, 481, -1, -1)
 $Label1 = GUICtrlCreateLabel("IPA FILES IN CURRENT FOLDER AVAILABLE FOR INSTALLATION: ", 368, 8, 340, 17)
 
-Global $FileList = _FileListToArray(@ScriptDir& "\IPA Files\", '*.ipa', 1)
+Global $FileList = _FileListToArray(@ScriptDir, '*.ipa', 1)
+If IsArray ($FileList) Then
+	sleep(10)
+Else
+	MsgBox(0, "ERROR", "No IPA's were found in the current folder, did you put the .EXE file in the Cydia folder and also put the IPA's you want to load in the same folder?")
+	Exit
+EndIf
+
+
+
+
 
 $hListBox = _GUICtrlListBox_Create($ImpactorLoader, "", 357, 70, 450, 400, $LBS_EXTENDEDSEL)
 $UPass = GUICtrlCreateButton("Type Username/Password (will wait for username window)", 16, 10, 289, 49)
