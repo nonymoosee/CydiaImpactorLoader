@@ -59,9 +59,10 @@ EndIf
 ;If you dragged a file then we just install without a GUI
 If $CmdLine[0] <> 0 Then
 	Opt("WinTitleMatchMode", 4)
-	Local $exists = WinExists("Cydia Impactor")
+	Local $exists = WinExists("[TITLE:Cydia Impactor; CLASS:wxWindowNR]")
 	If $exists = 0 Then ShellExecute(@ScriptDir & "\Impactor.exe")
-	WinWait("Cydia Impactor")
+	Sleep(500)
+	WinWait("[TITLE:Cydia Impactor;CLASS:wxWindowNR]")
 	WinActivate("[TITLE:Cydia Impactor; CLASS:wxWindowNR]")
 	Sleep(800)
 	WinMenuSelectItem("Cydia Impactor", "", "&Device", "&Install Package...")
@@ -186,9 +187,10 @@ EndFunc   ;==>ManLaunch
 
 Func LoadIPA($Selectedwhat)
 	Opt("WinTitleMatchMode", 4)
-	Local $exists = WinExists("Cydia Impactor")
+	Local $exists = WinExists("[TITLE:Cydia Impactor; CLASS:wxWindowNR]")
 	If $exists = 0 Then ShellExecute(@ScriptDir & "\Impactor.exe")
-	WinWait("Cydia Impactor")
+	Sleep(500)
+	WinWait("[TITLE:Cydia Impactor;CLASS:wxWindowNR]")
 	WinActivate("[TITLE:Cydia Impactor; CLASS:wxWindowNR]")
 	Sleep(800)
 	WinMenuSelectItem("Cydia Impactor", "", "&Device", "&Install Package...")
@@ -204,9 +206,10 @@ EndFunc   ;==>LoadIPA
 
 Func RevokeCerts() ; needs to be updated
 	Opt("WinTitleMatchMode", 4)
-	Local $exists = WinExists("Cydia Impactor")
+	Local $exists = WinExists("[TITLE:Cydia Impactor; CLASS:wxWindowNR]")
 	If $exists = 0 Then ShellExecute(@ScriptDir & "\Impactor.exe")
-	WinWait("Cydia Impactor")
+	Sleep(500)
+	WinWait("[TITLE:Cydia Impactor;CLASS:wxWindowNR]")
 	WinActivate("[TITLE:Cydia Impactor; CLASS:wxWindowNR]")
 	WinMenuSelectItem("Cydia Impactor", "", "&Xcode", "&Revoke Certificates")
 	Sleep(100)
