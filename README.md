@@ -1,4 +1,4 @@
-This program is designed to make Cydia Impactor a little easier and allow for you to save your password to make things quicker. Just to be clear. My program is a joke compared to Cydia Impactor and it's not mean as an attack on Saurik or anything like that, just made for lazy people like myself, I respect the work of real programmers like the tweak dev's and Saurik immensely. This is written in Autoit and the source code is available on github, PLEASE SEE the .au3 file for the SOURCE!
+This program is designed to make sideloading a little easier and allow for you to save your 2FA password to make things quicker. Just to be clear: My program is a joke compared to Cydia Impactor and it's not mean as an attack on Saurik or anything like that. I just made it for lazy people like myself, I respect the work of real programmers like the tweak dev's and Saurik immensely. This is written in Autoit and the source code is available on github, PLEASE SEE the .au3 file for the SOURCE!
 
 Heads up, this version is a stripped down version of 2.51, use 2.51 if you don't use 2FA.
 
