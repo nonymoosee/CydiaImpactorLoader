@@ -15,11 +15,22 @@
 #include <WindowsConstants.au3>
 #include <EditConstants.au3>
 
+
+HotKeySet("{Esc}", "captureEsc")
+Func captureEsc()
+	SaveEverything()
+	Exit
+EndFunc   ;==>captureEsc
+
+
+
 Global $sSalt = @ComputerName & @DocumentsCommonDir
 Global $requesteddirectory = "\IPA Files\"
 Global $appleloginpass
 Global $2FAP1, $2FAP2, $2FAP3, $2FAP4, $2FAP5, $2FAP6
 Global $aSelected[0]
+
+
 
 ; Check  to See is  value is already entered, if not, then set defaults
 
@@ -103,15 +114,14 @@ Global $impactorfolder = @ScriptDir & "\Impactor\"
 Global $impactorlocation = @ScriptDir & "\Impactor.exe"
 
 
+
+
 ;Check for Existance Of Impactor
 $locationcheck = FileExists($impactorlocation)
 If $locationcheck = 0 Then
 	MsgBox(0, "Cydia Impactor not found! ", "Put this exe in the same folder as Cydia Impactor! Location Check Value: " & $locationcheck)
 	Exit
 EndIf
-
-
-
 
 ; Create a GUI
 $ImpactorLoader = GUICreate("CydiaLoader", 827, 481, -1, -1)
@@ -470,5 +480,3 @@ Func StringEncrypt($bEncrypt, $sData, $sPassword)
 	_Crypt_Shutdown() ; Shutdown the Crypt library.
 	Return $sReturn
 EndFunc   ;==>StringEncrypt
-
-
