@@ -229,7 +229,7 @@ $Label = GUICtrlCreateLabel("IPA FILES IN CURRENT FOLDER AVAILABLE FOR INSTALLAT
 GUICtrlSetFont(-1, 12, 400, 0, "Times New Roman")
 $LaunchAndInstallTheChosenIPA = GUICtrlCreateButton("Launch Cydia Impactor And Install the Checked IPAs", 200, 328, 150, 41, $BS_MULTILINE)
 $LaunchImp = GUICtrlCreateButton("Start Cydia Impactor For Me", 8, 328, 185, 41)
-$Close = GUICtrlCreateButton("Close - Control S to force quit", 350, 328, 130, 41, $BS_MULTILINE)
+$Close = GUICtrlCreateButton("Close - Hit ESCAPE key to quit", 350, 328, 130, 41, $BS_MULTILINE)
 $2FAPass1 = GUICtrlCreateInput($2FAP1, 8, 50, 473, 21)
 $2FAPass2 = GUICtrlCreateInput($2FAP2, 8, 100, 473, 21)
 $2FAPass3 = GUICtrlCreateInput($2FAP3, 8, 150, 473, 21)
@@ -480,3 +480,5 @@ Func StringEncrypt($bEncrypt, $sData, $sPassword)
 	_Crypt_Shutdown() ; Shutdown the Crypt library.
 	Return $sReturn
 EndFunc   ;==>StringEncrypt
+
+
